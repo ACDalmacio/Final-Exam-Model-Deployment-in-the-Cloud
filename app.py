@@ -6,11 +6,11 @@ import cv2
 
 def main():
     # set up the Streamlit app
-    st.write("Name: Joemart Gridson T. Turaray")
-    st.write("Section: CPE32S4")
+    st.write("Name: Andre Christian G. Dalamacio")
+    st.write("Section: CPE32S5")
     st.write("Instructor: Dr. Jonathan Taylar")
-    st.title("Class Weather ( Sunrise/Cloudy)")
-    st.write("This app classifies whether an uploaded image contains a Sunrise or Cloudy images using a pre-trained convolutional neural network model.")
+    st.title("Fashion MNSIT")
+    st.write("This dataset is a collection of grayscale photographs of fashion goods such as garments, shoes, and bags that may be used to classify images.")
    
     @st.cache_resource
     def load_model():
@@ -27,10 +27,11 @@ def main():
         return prediction
 
     model = load_model()
-    class_names = ["CLOUDY", "SUNRISE"]
+    class_names = ['Top', 'Pants', 'Pullover', 'Dress', 'Jacket',
+               'Sandals', 'Shirts', 'Shoes', 'Sling', 'Boot']
     
 
-    file = st.file_uploader("Choose a Cloudy or Sunrise picture from your computer", type=["jpg", "png", "jpeg"])
+    file = st.file_uploader("Upload an image of fashion item", type=["jpg", "png", "jpeg"])
 
     if file is None:
         st.text("Please upload an image file")
